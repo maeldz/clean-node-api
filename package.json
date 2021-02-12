@@ -5,9 +5,13 @@
   "author": "Ismael de Jesus <mael.dazareia@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "postinstall": "husky install && husky add .husky/pre-commit \"npx lint-staged\" && husky add .husky/pre-commit \"npm run test:staged\"",
-    "test": "jest",
-    "test:staged": "jest"
+    "postinstall": "husky install && husky add .husky/pre-commit \"npx lint-staged\" && husky add .husky/pre-commit \"npm run test:staged\" && husky add .husky/pre-push \"npm run test:ci\"",
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "test:verbose": "jest --passWithNoTests --runInBand",
+    "test:unit": "npm test -- --watch -c jest-unit-config.js",
+    "test:integration": "npm test -- --watch -c jest-integration-config.js",
+    "test:staged": "npm test -- --findRelatedTests",
+    "test:ci": "npm test -- --coverage"
   },
   "dependencies": {},
   "devDependencies": {
