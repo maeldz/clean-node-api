@@ -4,6 +4,11 @@
   "main": "index.js",
   "author": "Ismael de Jesus <mael.dazareia@gmail.com>",
   "license": "MIT",
+  "config": {
+    "mongodbMemoryServer": {
+      "version": "4.4.4"
+    }
+  },
   "scripts": {
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:verbose": "jest --passWithNoTests --runInBand",
