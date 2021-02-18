@@ -3,3 +3,4 @@ dist
 coverage
 .yarn-integrity
 yarn.lock
+globalConfig.json
