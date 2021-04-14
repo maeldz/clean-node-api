@@ -3,6 +3,7 @@ export const signupPath = {
     tags: ['auth'],
     summary: 'Api para criar usuário',
     requestBody: {
+      required: true,
       content: {
         'application/json': {
           schema: {

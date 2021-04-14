@@ -1,4 +1,3 @@
-
 export const surveyResultAnswerSchema = {
   type: 'object',
   properties: {
@@ -14,5 +13,6 @@ export const surveyResultAnswerSchema = {
     percent: {
       type: 'number'
     }
-  }
+  },
+  required: ['answer', 'count', 'percent']
 }
