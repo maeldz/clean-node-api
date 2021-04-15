@@ -1,33 +1,23 @@
-import { LoadSurveyResultRepository } from '~/data/protocols/db/survey-result/load-survey-result-repository'
-import { SurveyResultModel } from '~/domain/models/survey-result'
-import { mockSurveyResultModel } from '~/domain/test/mock-survey-result'
-import { LoadSurveyResult } from '~/domain/usecases/survey-result/load-survey-result'
 import { DbLoadSurveyResult } from './db-load-survey-result'
+import { LoadSurveyResultRepository } from '~/data/protocols/db/survey-result/load-survey-result-repository'
+import { mockLoadSurveyResultRepository } from '~/data/test'
+import { LoadSurveyResult } from '~/domain/usecases/survey-result/load-survey-result'
+
+type SutTypes = {
+  sut: LoadSurveyResult
+  loadSurveyResultRepositoryStub: LoadSurveyResultRepository
+}
+
+const makeSut = (): SutTypes => {
+  const loadSurveyResultRepositoryStub = mockLoadSurveyResultRepository()
+  const sut = new DbLoadSurveyResult(loadSurveyResultRepositoryStub)
+  return {
+    sut,
+    loadSurveyResultRepositoryStub
+  }
+}
 
 describe('DbLoadSurveyResult Usecase', () => {
-  const mockLoadSurveyResultRepository = (): LoadSurveyResultRepository => {
-    class LoadSurveyResultRepositoryStub implements LoadSurveyResultRepository {
-      async loadBySurveyId (surveyId: string): Promise<SurveyResultModel> {
-        return mockSurveyResultModel()
-      }
-    }
-    return new LoadSurveyResultRepositoryStub()
-  }
-
-  type SutTypes = {
-    sut: LoadSurveyResult
-    loadSurveyResultRepositoryStub: LoadSurveyResultRepository
-  }
-
-  const makeSut = (): SutTypes => {
-    const loadSurveyResultRepositoryStub = mockLoadSurveyResultRepository()
-    const sut = new DbLoadSurveyResult(loadSurveyResultRepositoryStub)
-    return {
-      sut,
-      loadSurveyResultRepositoryStub
-    }
-  }
-
   test('Should call loadSurveyResultRepository with correct values', async () => {
     const { sut, loadSurveyResultRepositoryStub } = makeSut()
     const loadBySurveyIdSpy = jest.spyOn(loadSurveyResultRepositoryStub, 'loadBySurveyId')
