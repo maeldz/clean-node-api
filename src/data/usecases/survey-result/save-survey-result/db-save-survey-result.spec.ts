@@ -12,14 +12,13 @@ type SutTypes = {
 const makeSut = (): SutTypes => {
   const saveSurveyResultRepositoryStub = mockSaveSurveyResultRepository()
   const sut = new DbSaveSurveyResult(saveSurveyResultRepositoryStub)
-
   return {
     sut,
     saveSurveyResultRepositoryStub
   }
 }
 
-describe('DbAddSurvey Usecase', () => {
+describe('DbSaveSurveyResult Usecase', () => {
   beforeAll(() => {
     MockDate.set(new Date())
   })
