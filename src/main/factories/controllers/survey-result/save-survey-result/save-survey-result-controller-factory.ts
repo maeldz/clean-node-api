@@ -5,6 +5,6 @@ import { makeDbLoadSurveyById } from '~/main/factories/usecases/survey/load-surv
 import { makeDbSaveSurveyResult } from '~/main/factories/usecases/survey-result/save-survey-result/save-survey-result-factory'
 
 export const makeSaveSurveyResultController = (): Controller => {
-  const loadSurveysController = new SaveSurveyResultController(makeDbLoadSurveyById(), makeDbSaveSurveyResult())
-  return makeLogControllerDecorator(loadSurveysController)
+  const saveSurveyResultController = new SaveSurveyResultController(makeDbLoadSurveyById(), makeDbSaveSurveyResult())
+  return makeLogControllerDecorator(saveSurveyResultController)
 }
