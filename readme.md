@@ -4,7 +4,7 @@
 
 # **Clean Node API**
 
-## [**Link para o curso completo**](https://www.udemy.com/course/tdd-com-mango/?referralCode=B53CE5CA2B9AFA5A6FA1)
+## [**Link para o curso completo**](https://www.udemy.com/course/tdd-com-mango/?referralCode=)
 
 Essa API faz parte do treinamento do professor Rodrigo Manguinho (Mango) na Udemy.
 
